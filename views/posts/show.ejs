@@ -1,0 +1,127 @@
+<% layout('layouts/boilerplate') -%>
+
+
+<%-include('../partials/flash') %>
+
+
+<div class="row">
+  <div class="col">
+    <%-include('../layouts/leftBar') %>
+  </div>
+
+  <div class="col-6 m-auto">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between">
+
+        <div>
+          <h4 class="d-inline"><%= post.question %></h5>
+
+            <span class="m-3">
+              <a href="/home/<%= post._id %>/newanswer" type="button" class="btn btn-outline-secondary rounded-pill">Answer
+                <span>
+                  <i class="bi bi-pencil-square"></i>
+                </span>
+              </a>
+            </span>
+
+        </div>
+
+
+        <div>
+          <a href=""><i class="bi bi-hand-thumbs-up m-1"></i></a>
+          <a href=""><i class="bi bi-hand-thumbs-down m-1"></i></a>
+          <a href=""><i class="bi bi-chat-left m-1"></i></a>
+          <em >
+            <a href=""><span class="material-symbols-outlined mb-3">
+                more_horiz
+              </span></a>
+          </em>
+          <div></div>
+        </div>
+
+      </div>
+
+      <!-- <%= newAns %> -->
+      <% if(newAns===true){ %>
+      <div>
+      <form action="/home/<%= post._id %>" method="POST">
+        <div class="mb-3">
+          <label for="content" class="form-label">Write your answer here..</label>
+          <input type="text" class="form-control" name="content" id="content">
+        </div>
+        <div class="mb-3">
+          <label for="img" class="form-label">Img</label>
+          <input type="text" class="form-control" name="img" id="img">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <%  } %>
+
+      <div class="card-body">
+        <!-- <h5 class="card-title"><%= //post.author %></h5> -->
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+      </div>
+    </div>
+
+
+
+    <div class="answerBlock">
+      <% for( let answer of post.answer) { %>
+      <div class="card">
+        <div class="card-header">
+          <div class="d-flex justify-content-start row">
+            <div class="col">
+              <i class="bi bi-person"></i>
+            </div>
+            <div class="col-11">
+              <!-- <b> Answer.author </b> -->
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-text"> <b class="font-weight-bold">Answer: </b> <%= answer.content %></p>
+          <a href="#" class="btn readmore">Read more..</a>
+        </div>
+
+        <div class="card-header">
+          <div class="row">
+            <a href="/posts/<%= post._id %>/<%= answer._id %>/upvote" class="col-2">
+              <i class="bi bi-hand-thumbs-up col-1"></i>
+              <sup><span class="material-symbols-outlined">
+                counter_3
+                </span></sup>
+            </a>
+
+            <a href="/posts/<%= post._id %>/<%= answer._id %>/downvote" class="col-2">
+              <i class="bi bi-hand-thumbs-down "></i>
+              <sup><span class="material-symbols-outlined">
+                counter_3
+                </span></sup>
+            </a>
+
+            <a href="/home/<%= post._id %>/<%= answer._id %>/answer" class="col-1">
+              <i class="bi bi-chat"></i>
+            </a>
+
+            <form action="/home/<%= post._id %>/<%= answer._id %>?_method=DELETE" method="post">
+              <button class="d-float col-4" href="/posts/<%= post._id %>/<%= answer._id %>"><i class="bi bi-trash"></i></button>
+            </form>
+           
+          </div>
+        </div>
+      </div>
+
+      <% } %>
+    </div>
+  </div>
+
+
+
+  <div class="col">
+    <%-include('../layouts/rightBar') %>
+  </div>
+
+
+</div>

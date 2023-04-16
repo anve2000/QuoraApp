@@ -1,0 +1,78 @@
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid d-flex">
+    <a class="navbar-brand me-4">Quora</a>
+
+    <a href="/home"><span class="material-symbols-outlined">
+      home
+      </span></a>
+    <a href="/user/following"><span class="material-symbols-outlined">
+      format_list_bulleted
+      </span></a>
+
+    <a href="/answer"><span class="material-symbols-outlined">
+      edit_square
+      </span></a>
+
+    <a href="/spaces"><span class="material-symbols-outlined">
+groups
+</span></a>
+
+    <a href="/notifications"><span class="material-symbols-outlined">
+      notifications
+      </span></a>
+
+    <a href="/user"><span class="material-symbols-outlined">
+      account_circle
+      </span></a>
+
+    <a href="/languages"><span class="material-symbols-outlined">
+      language
+      </span></a>
+
+
+    <form class="d-flex" role="search">
+      <!-- <div class="d-flex"> -->
+      <div class="input-group me-3">
+        <input type="text" class="form-control" />
+      </div>
+      <!-- </div> -->
+    </form>
+
+    <div class="d-flex">
+      <%// if(currentUser) {%>
+      <a href="/login" class="m-2">
+        <span class="material-symbols-outlined">
+login
+</span>
+      </a>
+
+      <a href="/signUp" class="m-2">
+        Sign Up
+      </a>
+      <%// } else{ %>
+        <h3><%= //currentUser.name %></h3>
+      <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+            <button type="button" class="btn btn-secondary">Add Question
+
+            </button>
+           <div class="btn-group" role="group">
+                <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                </button>
+                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                  <a class="dropdown-item" href="#">Create Post</a>
+                </div>
+              </div>
+            
+          </div>
+
+          <!-- <div class="rounded-pill d-inline-block col">
+            <a href="">Add Question</a>
+            <a href=""><span class="material-symbols-outlined">
+              expand_more
+              </span></a>
+          </div> -->
+
+      <% //} %>
+    </div>
+  </div>
+</nav>

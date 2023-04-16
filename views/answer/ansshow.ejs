@@ -1,0 +1,95 @@
+<% layout('layouts/boilerplate') -%>
+
+<%-include('../partials/flash') %>
+
+<div class="row">
+  <div class="col-7 m-auto">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between">
+
+        <div>
+          <h4 class="d-inline"><%= post.question %></h5>
+
+            <span class="m-3">
+              <a href="/posts/<%= post._id %>/new" type="button" class="btn btn-outline-secondary rounded-pill">Answer
+                <span>
+                  <i class="bi bi-pencil-square"></i>
+                </span>
+              </a>
+            </span>
+
+        </div>
+
+        <div>
+          <a href=""><i class="bi bi-hand-thumbs-up m-2"></i></a>
+          <a href=""><i class="bi bi-hand-thumbs-down m-2"></i></a>
+          <a href=""><i class="bi bi-chat-left m-2"></i></a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="answerBlock">
+      <div class="card">
+        <div class="card-header">
+          <div class="d-flex justify-content-start row">
+            <div class="col">
+              <i class="bi bi-person"></i>
+            </div>
+            <div class="col-11">
+              <!-- <b> Answer.author </b> -->
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-text"> <b class="font-weight-bold"><%= answer.content %></p>
+          <a href="#" class="btn readmore">Read more..</a>
+        </div>
+
+        <div class="card-header">
+          <div class="d-flex justify-content-start row">
+            <a href="/posts/<%= post._id %>/<%= answer._id %>/upvote" class="col-1">
+              <i class="bi bi-caret-up-fill"></i>
+              <sup><%= answer.upV %></sup>
+            </a>
+            <a href="/posts/<%= post._id %>/<%= answer._id %>/downvote" class="col-1">
+              <i class="bi bi-caret-down-fill"></i>
+              <sup><%= answer.downV %></sup>
+            </a>
+
+            <a href="/posts/<%= post._id %>/<%= answer._id %>/review" class="col-1">
+              <i class="bi bi-chat"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div>
+        <form action="/posts/<%= post._id %>/<%= answer._id %>/review" method="post">
+            <div class="mb-3">
+              <label for="comment" class="form-label">Comment..</label>
+              <input name="comment" type="text" class="form-control" id="comment">
+            </div>
+            <button type="submit" class="btn btn-primary">Add comment</button>
+          </form>
+    </div>
+
+    <div>
+        <% for(let review of answer.reviews) {%>
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Review Author</h5>
+                  <p class="card-text"><%= review.comment%></p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+       <% } %> 
+    </div>
+
+
+
+  </div>
+
+</div>

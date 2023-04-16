@@ -1,0 +1,32 @@
+<% layout('layouts/boilerplate') -%>
+<%- include('../partials/flash') %>
+
+<div class="row m-auto">
+
+  <div class="col-2">
+    <%-include('../layouts/leftBar') %>
+  </div>
+
+  <div class="col-7 post">
+    <% for(let post of posts){ %>
+    <section class="container mt-5">
+      <%-include('../partials/flash') %>
+      <div class="card">
+        <a href="/home/<%= post._id %>" class="card-header"><%=post.question %></a>
+        <% if(post.answer.length>0){ %>
+        <div class="card-body">
+          
+          <p class="card-text"><%= post.answer[0].content %></p>
+          <button href="#" class="readmore btn btn-outline-secondary">Read More</button>
+        </div>
+        <% } %>
+      </div>
+    </section>
+    <% } %>
+  </div>
+
+  <div class="col">
+    <%-include('../layouts/rightBar') %>
+  </div>
+</div>
+</div>

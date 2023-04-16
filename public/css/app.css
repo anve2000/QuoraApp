@@ -1,0 +1,60 @@
+.navbar-brand{
+    color:brown;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+a{
+    color: brown;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+.col{
+    /* border: 1px brown solid;
+    padding: 0.5px; */
+    text-align: left;
+}
+
+ul{
+    list-style: none;
+    text-align: left;
+   
+}
+
+.rounded-pill{
+    /* border: 2px solid black;
+    background-color: brown;
+    height: 40px;
+    padding: 4px; */
+}
+
+.rounded-pill a{
+    color: white;
+    margin: 0;
+}
+
+nav a i{
+    color: darkslategrey;
+}
+
+.btn-group button{
+    background-color: brown;
+    color: white;
+}
+
+/* .post{
+    border: 1px solid slategray;
+} */
+
+.answerBlock{
+    margin-top: 50px;
+}
+
+.readmore{
+    color:grey;
+    font-weight:500;
+}
